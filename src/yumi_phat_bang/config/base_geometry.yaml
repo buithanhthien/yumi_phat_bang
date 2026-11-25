@@ -1,0 +1,9 @@
+# Nominal CAD values, not calibrated hardware parameters.
+wheel_joint_separation: 0.6076
+simulation_wheel_radius: 0.08
+simulation_wheel_width: 0.07
+simulation_spawn_z: 0.165
+# Conservative draft footprint; measure wheel/body/load protrusions on hardware.
+footprint: [[0.52, 0.44], [0.52, -0.44], [-0.52, -0.44], [-0.52, 0.44]]
+# CAD wheel axes: left = -Z, right = +Z. Sim model uses +Z for both.
+# Firmware must explicitly map command and encoder signs after bench testing.

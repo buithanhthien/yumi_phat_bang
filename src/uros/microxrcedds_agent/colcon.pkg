@@ -1,0 +1,16 @@
+{
+    "name": "microxrcedds_agent",
+    "type": "cmake",
+    "dependencies": ["fastcdr", "fastrtps"],
+    "cmake-args":[
+        "-DUAGENT_SUPERBUILD=OFF",
+        "-DUAGENT_ISOLATED_INSTALL=OFF",
+        "-DUAGENT_USE_SYSTEM_FASTCDR=ON",
+        "-DUAGENT_USE_SYSTEM_FASTDDS=ON",
+        "-DUAGENT_USE_SYSTEM_LOGGER=ON",
+        "-DUAGENT_P2P_PROFILE=OFF",
+        "-DUAGENT_BUILD_EXECUTABLE=OFF",
+        "-Dfastcdr_DIR=/opt/ros/jazzy/lib/cmake/fastcdr",
+        "-Dfastrtps_DIR=/opt/ros/jazzy/share/fastrtps/cmake"
+    ]
+}

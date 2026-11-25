@@ -1,0 +1,366 @@
+<?xml version='1.0' encoding='utf-8'?>
+<robot name="yumi_phat_bang">
+  <link name="base_link">
+    <inertial>
+      <origin xyz="-0.002244 -0.0028618 -0.053903" rpy="0 0 0" />
+      <mass value="13.027" />
+      <inertia ixx="0.13787" ixy="9.1315E-08" ixz="-2.4277E-08" iyy="0.22208" iyz="-1.8944E-05" izz="0.35352" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://yumi_phat_bang/meshes/base_link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 -0.0475" rpy="0 0 0" />
+      <geometry>
+        <box size="1.0 0.6 0.155" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="leftwheel_link">
+    <inertial>
+      <origin xyz="-0.000189303525734298 -0.00282148596422521 -0.0359160828249054" rpy="0 0 0" />
+      <mass value="1.06545247475586" />
+      <inertia ixx="0.00165319086675699" ixy="7.85400166465839E-07" ixz="2.37274097535984E-07" iyy="0.00164770439767459" iyz="-1.45324498622561E-06" izz="0.00281303686784971" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://yumi_phat_bang/meshes/leftwheel_link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.250980392156863 0.250980392156863 0.250980392156863 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder radius="0.08" length="0.07" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="leftwheel_joint" type="continuous">
+    <origin xyz="0 0.3038 -0.079" rpy="-1.5708 0 0" />
+    <parent link="base_link" />
+    <child link="leftwheel_link" />
+    <axis xyz="0 0 1" />
+    <dynamics damping="0.1" friction="0.1" />
+  </joint>
+  <link name="left_casterwheel_before_link">
+    <inertial>
+      <origin xyz="-0.0200489398247827 0.0374278559420575 -3.60822483003176E-16" rpy="0 0 0" />
+      <mass value="0.258259398699812" />
+      <inertia ixx="0.000147261729627472" ixy="1.1715813883362E-05" ixz="-1.00816749514953E-19" iyy="0.000146111980507694" iyz="4.92001396309822E-19" izz="0.000192093329563559" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://yumi_phat_bang/meshes/left_casterwheel_before_link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.250980392156863 0.250980392156863 0.250980392156863 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="-0.02 0.068 0" rpy="0 0 0" />
+      <geometry>
+        <sphere radius="0.03" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="left_casterwheel_before_joint" type="fixed">
+    <origin xyz="0.42992 0.23002 -0.061" rpy="-1.5708 0 0" />
+    <parent link="base_link" />
+    <child link="left_casterwheel_before_link" />
+    <axis xyz="0 0 0" />
+    <dynamics damping="0.1" friction="0.1" />
+  </joint>
+  <link name="left_casterwheel_after_link">
+    <inertial>
+      <origin xyz="-0.0200489398247847 0.0374278559420575 -3.33066907387547E-16" rpy="0 0 0" />
+      <mass value="0.258259398699812" />
+      <inertia ixx="0.000147261729627472" ixy="1.17158138833619E-05" ixz="-1.04385071028425E-19" iyy="0.000146111980507694" iyz="4.91775740987432E-19" izz="0.000192093329563559" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://yumi_phat_bang/meshes/left_casterwheel_after_link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.250980392156863 0.250980392156863 0.250980392156863 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="-0.02 0.068 0" rpy="0 0 0" />
+      <geometry>
+        <sphere radius="0.03" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="left_casterwheel_after_joint" type="fixed">
+    <origin xyz="-0.41342 0.23002 -0.061" rpy="-1.5708 0 0" />
+    <parent link="base_link" />
+    <child link="left_casterwheel_after_link" />
+    <axis xyz="0 0 0" />
+    <dynamics damping="0.1" friction="0.1" />
+  </joint>
+  <link name="rightwheel_link">
+    <inertial>
+      <origin xyz="0.000189303525734299 -0.00282148596422473 0.0359160828249056" rpy="0 0 0" />
+      <mass value="1.06545247475586" />
+      <inertia ixx="0.00165319086675699" ixy="-7.85400166465608E-07" ixz="2.37274097535909E-07" iyy="0.00164770439767458" iyz="1.45324498624217E-06" izz="0.00281303686784971" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://yumi_phat_bang/meshes/rightwheel_link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.250980392156863 0.250980392156863 0.250980392156863 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder radius="0.08" length="0.07" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="rightwheel_joint" type="continuous">
+    <origin xyz="0 -0.3038 -0.079" rpy="-1.5708 0 0" />
+    <parent link="base_link" />
+    <child link="rightwheel_link" />
+    <axis xyz="0 0 1" />
+    <dynamics damping="0.1" friction="0.1" />
+  </joint>
+  <link name="right_casterwheel_before_link">
+    <inertial>
+      <origin xyz="-0.0200489398247822 0.0374278559420574 -1.94289029309402E-16" rpy="0 0 0" />
+      <mass value="0.258259398699812" />
+      <inertia ixx="0.000147261729627473" ixy="1.17158138833619E-05" ixz="-8.74629544125374E-20" iyy="0.000146111980507695" iyz="2.08832991351869E-19" izz="0.000192093329563559" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://yumi_phat_bang/meshes/right_casterwheel_before_link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.250980392156863 0.250980392156863 0.250980392156863 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="-0.02 0.068 0" rpy="0 0 0" />
+      <geometry>
+        <sphere radius="0.03" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="right_casterwheel_before_joint" type="fixed">
+    <origin xyz="0.42992 -0.23002 -0.061" rpy="-1.5708 0 0" />
+    <parent link="base_link" />
+    <child link="right_casterwheel_before_link" />
+    <axis xyz="0 0 0" />
+    <dynamics damping="0.1" friction="0.1" />
+  </joint>
+  <link name="right_casterwheel_after_link">
+    <inertial>
+      <origin xyz="-0.0200489398247852 0.0374278559420574 -1.66533453693773E-16" rpy="0 0 0" />
+      <mass value="0.258259398699812" />
+      <inertia ixx="0.000147261729627473" ixy="1.17158138833619E-05" ixz="-8.52350377120549E-20" iyy="0.000146111980507695" iyz="2.08294013706418E-19" izz="0.000192093329563559" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://yumi_phat_bang/meshes/right_casterwheel_after_link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.250980392156863 0.250980392156863 0.250980392156863 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="-0.02 0.068 0" rpy="0 0 0" />
+      <geometry>
+        <sphere radius="0.03" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="right_casterwheel_after_joint" type="fixed">
+    <origin xyz="-0.41342 -0.23002 -0.061" rpy="-1.5708 0 0" />
+    <parent link="base_link" />
+    <child link="right_casterwheel_after_link" />
+    <axis xyz="0 0 0" />
+    <dynamics damping="0.1" friction="0.1" />
+  </joint>
+  <link name="front_lidar_link">
+    <inertial>
+      <origin xyz="0.00303996073716362 9.65791121160242E-07 0.0128055204579271" rpy="0 0 0" />
+      <mass value="0.0350818392041316" />
+      <inertia ixx="1.94316858698436E-05" ixy="9.0920952673613E-10" ixz="-4.07022920786857E-08" iyy="1.93203923947135E-05" iyz="8.87510916538645E-10" izz="3.7018454642383E-05" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://yumi_phat_bang/meshes/front_lidar_link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0 0 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder radius="0.04" length="0.04" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="front_lidar_joint" type="fixed">
+    <origin xyz="0.42855 -0.228 -0.01805" rpy="0 0 -3.1416" />
+    <parent link="base_link" />
+    <child link="front_lidar_link" />
+    <axis xyz="0 0 0" />
+    <dynamics damping="0.1" friction="0.1" />
+  </joint>
+  <link name="rear_lidar_link">
+    <inertial>
+      <origin xyz="0.00303996073716362 9.65791121160242E-07 0.0128055204579271" rpy="0 0 0" />
+      <mass value="0.0350818392041316" />
+      <inertia ixx="1.94316858698436E-05" ixy="9.0920952673613E-10" ixz="-4.07022920786857E-08" iyy="1.93203923947135E-05" iyz="8.87510916538645E-10" izz="3.7018454642383E-05" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://yumi_phat_bang/meshes/rear_lidar_link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder radius="0.04" length="0.04" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="rear_lidar_joint" type="fixed">
+    <origin xyz="-0.42797 0.22761 -0.01441" rpy="0 0 0" />
+    <parent link="base_link" />
+    <child link="rear_lidar_link" />
+    <axis xyz="0 0 0" />
+    <dynamics damping="0.1" friction="0.1" />
+  </joint>
+  <gazebo reference="base_link">
+    <mu1>1.0</mu1>
+    <mu2>1.0</mu2>
+  </gazebo>
+  <gazebo reference="leftwheel_link">
+    <mu1>1.0</mu1>
+    <mu2>1.0</mu2>
+  </gazebo>
+  <gazebo reference="left_casterwheel_before_link">
+    <mu1>0.01</mu1>
+    <mu2>0.01</mu2>
+  </gazebo>
+  <gazebo reference="left_casterwheel_after_link">
+    <mu1>0.01</mu1>
+    <mu2>0.01</mu2>
+  </gazebo>
+  <gazebo reference="rightwheel_link">
+    <mu1>1.0</mu1>
+    <mu2>1.0</mu2>
+  </gazebo>
+  <gazebo reference="right_casterwheel_before_link">
+    <mu1>0.01</mu1>
+    <mu2>0.01</mu2>
+  </gazebo>
+  <gazebo reference="right_casterwheel_after_link">
+    <mu1>0.01</mu1>
+    <mu2>0.01</mu2>
+  </gazebo>
+  <gazebo reference="front_lidar_link">
+    <mu1>1.0</mu1>
+    <mu2>1.0</mu2>
+    <preserveFixedJoint>true</preserveFixedJoint>
+  </gazebo>
+  <gazebo reference="rear_lidar_link">
+    <mu1>1.0</mu1>
+    <mu2>1.0</mu2>
+    <preserveFixedJoint>true</preserveFixedJoint>
+  </gazebo>
+  <gazebo>
+    <plugin filename="gz-sim-diff-drive-system" name="gz::sim::systems::DiffDrive">
+      <left_joint>leftwheel_joint</left_joint>
+      <right_joint>rightwheel_joint</right_joint>
+      <wheel_separation>0.6076</wheel_separation>
+      <wheel_radius>0.08</wheel_radius>
+      <topic>/cmd_vel</topic>
+      <odom_topic>/odom</odom_topic>
+      <tf_topic>/tf</tf_topic>
+      <frame_id>odom</frame_id>
+      <child_frame_id>base_link</child_frame_id>
+      <odom_publish_frequency>30</odom_publish_frequency>
+      <max_linear_velocity>0.3</max_linear_velocity>
+      <min_linear_velocity>-0.3</min_linear_velocity>
+      <max_angular_velocity>0.8</max_angular_velocity>
+      <min_angular_velocity>-0.8</min_angular_velocity>
+      <max_linear_acceleration>0.3</max_linear_acceleration>
+      <min_linear_acceleration>-0.3</min_linear_acceleration>
+    </plugin>
+    <plugin filename="gz-sim-joint-state-publisher-system" name="gz::sim::systems::JointStatePublisher">
+      <topic>/joint_states</topic>
+      <joint_name>leftwheel_joint</joint_name>
+      <joint_name>rightwheel_joint</joint_name>
+    </plugin>
+  </gazebo>
+  <gazebo reference="front_lidar_link">
+    <sensor name="front_lidar" type="gpu_lidar">
+      <always_on>true</always_on>
+      <update_rate>10</update_rate>
+      <topic>/front_lidar/scan</topic>
+      <gz_frame_id>front_lidar_link</gz_frame_id>
+      <lidar>
+        <scan>
+          <horizontal>
+            <samples>1440</samples>
+            <resolution>1</resolution>
+            <min_angle>-3.14159265359</min_angle>
+            <max_angle>3.14159265359</max_angle>
+          </horizontal>
+        </scan>
+        <range>
+          <min>0.15</min>
+          <max>16</max>
+          <resolution>0.01</resolution>
+        </range>
+      </lidar>
+    </sensor>
+  </gazebo>
+  <gazebo reference="rear_lidar_link">
+    <sensor name="rear_lidar" type="gpu_lidar">
+      <always_on>true</always_on>
+      <update_rate>10</update_rate>
+      <topic>/rear_lidar/scan</topic>
+      <gz_frame_id>rear_lidar_link</gz_frame_id>
+      <lidar>
+        <scan>
+          <horizontal>
+            <samples>1440</samples>
+            <resolution>1</resolution>
+            <min_angle>-3.14159265359</min_angle>
+            <max_angle>3.14159265359</max_angle>
+          </horizontal>
+        </scan>
+        <range>
+          <min>0.15</min>
+          <max>16</max>
+          <resolution>0.01</resolution>
+        </range>
+      </lidar>
+    </sensor>
+  </gazebo>
+</robot>

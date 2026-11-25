@@ -1,0 +1,58 @@
+Panels:
+- Class: rviz_common/Displays
+  Name: Displays
+Visualization Manager:
+  Class: ''
+  Global Options:
+    Fixed Frame: base_link
+    Frame Rate: 30
+  Displays:
+  - Class: rviz_default_plugins/Grid
+    Name: Grid
+    Enabled: true
+    Cell Size: 0.5
+  - Class: rviz_default_plugins/RobotModel
+    Name: Yumi
+    Enabled: true
+    Description Source: Topic
+    Description Topic:
+      Value: /robot_description
+      Durability Policy: Transient Local
+      Reliability Policy: Reliable
+  - Class: rviz_default_plugins/TF
+    Name: TF
+    Enabled: true
+    Show Names: true
+  - Class: rviz_default_plugins/LaserScan
+    Name: Front LiDAR
+    Enabled: true
+    Topic:
+      Value: /front_lidar/scan
+      Reliability Policy: Best Effort
+      Durability Policy: Volatile
+    Size (m): 0.015
+    Color Transformer: FlatColor
+    Color: 255; 0; 0
+  - Class: rviz_default_plugins/LaserScan
+    Name: Rear LiDAR
+    Enabled: true
+    Topic:
+      Value: /rear_lidar/scan
+      Reliability Policy: Best Effort
+      Durability Policy: Volatile
+    Size (m): 0.015
+    Color Transformer: FlatColor
+    Color: 0; 100; 255
+  Tools:
+  - Class: rviz_default_plugins/Interact
+  - Class: rviz_default_plugins/MoveCamera
+  Views:
+    Current:
+      Class: rviz_default_plugins/Orbit
+      Distance: 3.5
+      Pitch: 0.6
+      Yaw: 0.8
+      Target Frame: base_link
+Window Geometry:
+  Width: 1200
+  Height: 800

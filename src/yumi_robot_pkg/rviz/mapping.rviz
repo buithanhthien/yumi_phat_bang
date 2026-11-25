@@ -1,0 +1,67 @@
+Panels:
+- Class: rviz_common/Displays
+  Name: Displays
+Visualization Manager:
+  Class: ''
+  Global Options:
+    Fixed Frame: map
+    Frame Rate: 30
+  Displays:
+  - Class: rviz_default_plugins/Grid
+    Name: Grid
+    Enabled: true
+    Cell Size: 0.5
+  - Class: rviz_default_plugins/Map
+    Name: SLAM Map
+    Enabled: true
+    Alpha: 0.8
+    Draw Behind: true
+    Topic:
+      Value: /map
+      Reliability Policy: Reliable
+      Durability Policy: Transient Local
+  - Class: rviz_default_plugins/RobotModel
+    Name: Yumi
+    Enabled: true
+    Description Source: Topic
+    Description Topic:
+      Value: /robot_description
+      Durability Policy: Transient Local
+      Reliability Policy: Reliable
+  - Class: rviz_default_plugins/TF
+    Name: TF
+    Enabled: true
+    Show Names: true
+  - Class: rviz_default_plugins/LaserScan
+    Name: Merged LiDAR
+    Enabled: true
+    Topic:
+      Value: /merged
+      Reliability Policy: Best Effort
+      Durability Policy: Volatile
+    Size (m): 0.015
+    Color Transformer: FlatColor
+    Color: 255; 0; 0
+  - Class: rviz_default_plugins/LaserScan
+    Name: Rear LiDAR
+    Enabled: true
+    Topic:
+      Value: /rear_lidar/scan
+      Reliability Policy: Best Effort
+      Durability Policy: Volatile
+    Size (m): 0.015
+    Color Transformer: FlatColor
+    Color: 0; 100; 255
+  Tools:
+  - Class: rviz_default_plugins/Interact
+  - Class: rviz_default_plugins/MoveCamera
+  Views:
+    Current:
+      Class: rviz_default_plugins/Orbit
+      Distance: 10.0
+      Pitch: 1.45
+      Yaw: 0.0
+      Target Frame: map
+Window Geometry:
+  Width: 1200
+  Height: 800
