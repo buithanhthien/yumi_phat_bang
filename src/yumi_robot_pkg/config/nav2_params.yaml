@@ -237,7 +237,7 @@ controller_server:
       # Prior to Jazzy, disengagement occurs at angular_dist_threshold instead
 
       # Rotate-in-place behavior
-      rotate_to_heading_angular_vel: 1.2 #0.8          # rad/s - Angular rotational velocity to rotate to the path heading
+      rotate_to_heading_angular_vel: 0.5          # rad/s - Angular rotational velocity to rotate to the path heading
       # Safe angular speed for indoor navigation
 
       max_angular_accel: 16.0                     # rad/s^2 - Maximum angular acceleration for rotation to heading
@@ -301,7 +301,7 @@ controller_server:
       vy_max: 0.0                                 # IMPORTANT for DiffDrive - must stay 0
       # Target maximum lateral velocity, if using Omni motion model [m/s]
 
-      wz_max: 3.0                                 # Maximum rotational velocity [rad/s]
+      wz_max: 0.5                                 # Maximum rotational velocity [rad/s]
 
       # Sampling noise (DiffDrive)
       vx_std: 0.2                                 # Sampling standard deviation for Vx - linear velocity exploration noise
@@ -878,7 +878,7 @@ behavior_server:
     robot_base_frame: base_link
     transform_tolerance: 0.1
     simulate_ahead_time: 2.0
-    max_rotational_vel: 1.0
+    max_rotational_vel: 0.5
     min_rotational_vel: 0.4
     rotational_acc_lim: 3.2
 
