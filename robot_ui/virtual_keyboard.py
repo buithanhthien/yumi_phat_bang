@@ -71,7 +71,7 @@ class VirtualKeyboard(QWidget):
                  for letter in "qwertyuiop"],
                 [(letter, letter.upper() if self._keyboard_shift else letter, 1)
                  for letter in "asdfghjkl"],
-                [("shift", "Hoa/thường", 2)] +
+                [("shift", "Shift", 2)] +
                 [(letter, letter.upper() if self._keyboard_shift else letter, 1)
                  for letter in "zxcvbnm"] +
                 [("backspace", "⌫", 2)],
