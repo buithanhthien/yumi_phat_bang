@@ -14,7 +14,7 @@ from PyQt6.QtWidgets import (
 from conversation_voice import VietnameseVoice
 
 
-KEY_FILE = Path.home() / '.config' / 'yumi-robot' / 'openai.key'
+KEY_FILE = Path(__file__).resolve().parents[1] / 'openai.key'
 
 
 def read_api_key():

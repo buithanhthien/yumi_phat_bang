@@ -65,10 +65,8 @@ mô hình có sẵn trong bộ nhớ đệm của Supertonic, cùng với `aplay
 `alsa-utils`. Audio dùng thiết bị mặc định. Có thể đặt `YUMI_MIC_DEVICE`
 (chỉ số thiết bị PyAudio) và `YUMI_SPEAKER_DEVICE` (tên thiết bị ALSA).
 
-Lưu khóa OpenAI riêng tại `~/.config/yumi-robot/openai.key`, một dòng chứa
-khóa. File phải thuộc tài khoản chạy UI và có quyền `0600`. Nếu file chưa
-có, có thể tạo bằng `mkdir -p -m 700 ~/.config/yumi-robot` rồi
-`(umask 077; touch ~/.config/yumi-robot/openai.key)` và mở file bằng trình
+Lưu khóa OpenAI tại `/home/khoaiuh/yumi_phat_bang/openai.key`, một dòng chứa
+khóa. File có quyền `0600` và được loại khỏi Git. Mở file bằng trình
 soạn thảo cục bộ để nhập khóa. Mặc định UI dùng `gpt-4.1-mini`, có thể
 chọn bằng `YUMI_OPENAI_MODEL`. ChatGPT nhận văn bản hội thoại. Nhận dạng
 giọng nói và tổng hợp tiếng Việt chạy trên mini PC.
