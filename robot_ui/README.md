@@ -67,6 +67,5 @@ mô hình có sẵn trong bộ nhớ đệm của Supertonic, cùng với `aplay
 
 Lưu khóa OpenAI tại `/home/khoaiuh/yumi_phat_bang/openai.key`, một dòng chứa
 khóa. File có quyền `0600` và được loại khỏi Git. Mở file bằng trình
-soạn thảo cục bộ để nhập khóa. Mặc định UI dùng `gpt-4.1-mini`, có thể
-chọn bằng `YUMI_OPENAI_MODEL`. ChatGPT nhận văn bản hội thoại. Nhận dạng
+soạn thảo cục bộ để nhập khóa. Mặc định UI dùng `gpt-6-luna` với mức suy luận `none`. Có thể chọn model khác qua `YUMI_OPENAI_MODEL`. ChatGPT nhận văn bản hội thoại. Nhận dạng
 giọng nói và tổng hợp tiếng Việt chạy trên mini PC.

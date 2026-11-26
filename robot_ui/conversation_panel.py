@@ -33,9 +33,12 @@ def read_api_key():
 def chat_reply(messages):
     from openai import OpenAI
 
+    model = os.getenv('YUMI_OPENAI_MODEL', 'gpt-6-luna')
+    options = {'reasoning': {'effort': 'none'}} if model == 'gpt-6-luna' else {}
     with OpenAI(api_key=read_api_key(), timeout=20.0, max_retries=0) as client:
         response = client.responses.create(
-            model=os.getenv('YUMI_OPENAI_MODEL', 'gpt-4.1-mini'),
+            model=model,
+            **options,
             instructions=(
                 'Bạn là trợ lý hội thoại của robot Yumi. Trả lời bằng tiếng Việt, '
                 'ngắn gọn, dễ đọc thành tiếng. Bạn không có quyền điều khiển robot '
