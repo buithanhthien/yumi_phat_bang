@@ -29,19 +29,19 @@ The PC network interfaces used by Zackon were `192.168.3.150` and
 ```bash
 source /opt/ros/jazzy/setup.bash
 cd /home/khoaiuh/yumi_phat_bang
-colcon --log-base log_yumi build --base-paths src \
-  --build-base build_yumi --install-base install_yumi \
+colcon --log-base log build --base-paths src \
+  --build-base build --install-base install \
   --packages-up-to yumi_phat_bang yumi_robot_pkg --symlink-install \
   --parallel-workers 2 --cmake-args -DBUILD_TESTING=OFF \
   -DCMAKE_BUILD_TYPE=Release -DUAGENT_SUPERBUILD=OFF \
   -DUAGENT_USE_SYSTEM_FASTCDR=ON -DUAGENT_USE_SYSTEM_FASTDDS=ON \
   -DUAGENT_USE_SYSTEM_LOGGER=ON -DUAGENT_BUILD_EXECUTABLE=OFF
-source install_yumi/setup.bash
+source install/setup.bash
 ```
 
-Use a fresh terminal sourced only with ROS Jazzy before building. The separate
-`build_yumi`, `install_yumi` and `log_yumi` directories avoid the broken symlinks
-in the imported build. Source `install_yumi/setup.bash` in every hardware terminal.
+Use a fresh terminal sourced only with ROS Jazzy before building. Use only the
+canonical `build`, `install` and `log` directories. Source
+`install/setup.bash` in every hardware terminal.
 
 The current STM32 firmware publishes in ROS domain 0. Use that domain in all
 hardware terminals. Stop any Gazebo launch in that domain before connecting to
@@ -58,10 +58,10 @@ installed `/usr/local` build crashed with `stack smashing detected` when STM32
 created a participant. Rebuild through colcon if the Agent executable changes:
 
 ```bash
-colcon --log-base log_yumi build --base-paths src \
-  --build-base build_yumi --install-base install_yumi \
+colcon --log-base log build --base-paths src \
+  --build-base build --install-base install \
   --packages-up-to micro_ros_agent --symlink-install
-source install_yumi/setup.bash
+source install/setup.bash
 ```
 
 ## 1. Confirm STM32 odometry
@@ -176,8 +176,7 @@ verify encoder and motor signs, and set a safe footprint and velocity limits.
 ## Wheel TF and package migration
 
 The active hardware package and Python module are now `yumi_robot_pkg`, located
-in `src/yumi_robot_pkg`. Build and source `install_yumi`, not the imported
-`install` or the previous `install_lidar`. Old `view_robot_pkg` commands may still
+in `src/yumi_robot_pkg`. Build and source the canonical `install` directory. Old `view_robot_pkg` commands may still
 resolve Zackon if that workspace is sourced in the shell; use a fresh terminal.
 The `legacy_zackon_view_robot` directory is an unchanged reference archive.
 

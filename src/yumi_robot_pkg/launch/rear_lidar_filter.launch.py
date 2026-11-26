@@ -5,7 +5,9 @@ from launch_ros.actions import Node
 
 def generate_launch_description():
     pkg_dir = get_package_share_directory('yumi_robot_pkg')
-    config_file = os.path.join(pkg_dir, 'config', 'rear_lidar_filter.yaml')
+    # Original 180-degree configuration (restore this line to roll back).
+    # config_file = os.path.join(pkg_dir, 'config', 'rear_lidar_filter.yaml')
+    config_file = os.path.join(pkg_dir, 'config', 'rear_lidar_filter_270.yaml')
 
     return LaunchDescription([
         Node(

@@ -1,0 +1,14 @@
+# 270-degree scan; keep the original 180-degree YAML unchanged.
+# Angles are in the lidar frame. With the current mounting, outward is -X.
+# Remove only -90..0 degrees; restore 0..+90 degrees (outward rear-right).
+# InPlace removes the interval, and does not support an invert parameter.
+scan_front_filter:
+  ros__parameters:
+    filter1:
+      name: front_270
+      type: laser_filters/LaserScanAngularBoundsFilterInPlace
+      params:
+        lower_angle: -1.5707963268
+        upper_angle: 0.0
+        wrap_angle: true
+        replace_with_nan: true

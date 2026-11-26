@@ -19,14 +19,14 @@ Build the packages needed for simulation and hardware bringup:
 ```bash
 source /opt/ros/jazzy/setup.bash
 cd /home/khoaiuh/yumi_phat_bang
-colcon --log-base log_yumi build --base-paths src \
-  --build-base build_yumi --install-base install_yumi \
+colcon --log-base log build --base-paths src \
+  --build-base build --install-base install \
   --packages-up-to yumi_phat_bang yumi_robot_pkg --symlink-install \
   --parallel-workers 2 --cmake-args -DBUILD_TESTING=OFF \
   -DCMAKE_BUILD_TYPE=Release -DUAGENT_SUPERBUILD=OFF \
   -DUAGENT_USE_SYSTEM_FASTCDR=ON -DUAGENT_USE_SYSTEM_FASTDDS=ON \
   -DUAGENT_USE_SYSTEM_LOGGER=ON -DUAGENT_BUILD_EXECUTABLE=OFF
-source install_yumi/setup.bash
+source install/setup.bash
 ```
 
 - Simulation: `ros2 launch yumi_phat_bang mapping_sim.launch.py`
@@ -38,7 +38,7 @@ See [simulation instructions](src/yumi_phat_bang/docs/MAPPING.md) and
 starting the real robot launch in the same ROS domain.
 
 The hardware package is `yumi_robot_pkg`. Use a fresh terminal and source
-`install_yumi/setup.bash`; do not source the older Zackon workspace.
+`install/setup.bash`; do not source the older Zackon workspace.
 
 ## Selecting Yumi in a terminal
 
