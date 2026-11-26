@@ -1,0 +1,7 @@
+PyQt6>=6.4,<7
+PyYAML>=6,<7
+openai>=1.66
+numpy
+PyAudio
+sherpa-onnx
+supertonic

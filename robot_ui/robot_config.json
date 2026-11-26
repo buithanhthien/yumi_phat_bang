@@ -1,0 +1,23 @@
+{
+  "workspace": "/home/khoaiuh/yumi_phat_bang",
+  "ros_setup": "/opt/ros/jazzy/setup.bash",
+  "maps_directory": "src/yumi_robot_pkg/maps",
+  "selected_map": "X5_19102026.yaml",
+  "nav2_command": "ros2 launch yumi_robot_pkg NAV2_BRINGUP.launch.py map:={map}",
+  "nav2_opens_rviz": true,
+  "rviz_command": "rviz2",
+  "mapping_command": "ros2 launch yumi_robot_pkg MAP_GENERATING.launch.py start_robot:=false",
+  "map_save_command": "ros2 run nav2_map_server map_saver_cli -f {output}",
+  "odom_topic": "/odomfromSTM32",
+  "front_scan_topic": "/front_lidar/scan",
+  "rear_scan_topic": "/rear_lidar/scan",
+  "pose_topic": "/amcl_pose",
+  "map_topic": "/map",
+  "map_frame": "map",
+  "base_frame": "base_link",
+  "navigate_action": "/navigate_to_pose",
+  "arbiter_state_topic": "/velocity_arbiter/state",
+  "emergency_stop_topic": "/velocity_arbiter/emergency_stop",
+  "map_server_node": "/map_server",
+  "load_map_service": "/map_server/load_map"
+}
