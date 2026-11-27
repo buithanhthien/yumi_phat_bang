@@ -33,7 +33,7 @@ from action_msgs.msg import GoalStatus
 from action_msgs.srv import CancelGoal
 from nav2_msgs.action import NavigateToPose
 from nav2_msgs.srv import LoadMap
-from config import SETTINGS, UI_DIRECTORY, shell_source_workspace, robot_command
+from config import SETTINGS, SOURCE_PATH, UI_DIRECTORY, shell_source_workspace, robot_command
 from map_utils import get_current_map_path, get_current_map_name, update_map_files
 from waypoint_store import load_waypoint_file, resolve_waypoint, save_waypoint_file, deletion_reason, route_references
 from waypoint_dialogs import DestinationDialog, WaypointPickerDialog, NewWaypointDialog, PathManagerDialog, NewPathDialog, DIALOG_STYLE
@@ -43,7 +43,7 @@ from startup_icons import startup_icon
 from ui_utils import confirm_dialog, setup_clock_timer, warning_dialog
 from new_map_layout import NewMapUI
 from load_map_dialog import LoadMapDialog
-from mapping_process import MappingProcess
+from mapping_process import MappingProcess, stop_previous_yumi_nav2
 from robot_eyes import RobotEyes
 
 class RobotUI(QMainWindow):
@@ -285,7 +285,21 @@ class RobotUI(QMainWindow):
 
     def stop_nav2(self):
         if self._nav_process is None and self._rviz_process is None:
-            self.log('Giao diện chưa khởi chạy Nav2/RViz.')
+            if self._navigation_busy() or (self._arbiter and self._arbiter.get('navigation_busy')):
+                self._cancel_nav2_goals()
+                self.log('Đang hủy mục tiêu. Nhấn tắt Nav2 lại sau khi đã hủy.')
+                return
+            try:
+                pid = stop_previous_yumi_nav2(SOURCE_PATH)
+                if pid is None:
+                    self.log('Không tìm thấy phiên Nav2 cũ do Yumi khởi chạy trên máy này.')
+                else:
+                    self.log(f'Đã gửi yêu cầu tắt phiên Nav2/RViz cũ (PID {pid}). '
+                             'Chờ phiên dừng rồi bấm Bật Nav2 và RViz.')
+            except ProcessLookupError:
+                self.log('Phiên Nav2 cũ đã thoát.')
+            except (OSError, RuntimeError) as exc:
+                self.log(f'Không thể tắt phiên Nav2 cũ: {exc}')
             return
         self._cancel_nav2_goals()
         if self._navigation_busy():
@@ -992,6 +1006,22 @@ class RobotUI(QMainWindow):
                 300,
                 lambda: self._send_next_waypoint(generation)
             )
+
+        elif status == GoalStatus.STATUS_ABORTED:
+
+            # Previously ABORTED fell into the failure branch below and cleared
+            # the entire route. Skip this failed destination only; cancellation
+            # and unexpected results still stop the route.
+            # Previous behavior: self._waypoint_queue.clear()
+            if self._waypoint_queue and not self._stop_requested:
+                self.log('[robot] Điểm hiện tại thất bại (aborted); bỏ qua và đi điểm tiếp theo.')
+                QTimer.singleShot(
+                    300,
+                    lambda: self._send_next_waypoint(generation)
+                )
+            else:
+                self._waypoint_queue.clear()
+                self.log('[robot] Điểm hiện tại thất bại (aborted); không còn điểm tiếp theo hoặc đã yêu cầu dừng.')
 
         elif status == GoalStatus.STATUS_CANCELED:
 

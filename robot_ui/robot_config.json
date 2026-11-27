@@ -3,7 +3,7 @@
   "ros_setup": "/opt/ros/jazzy/setup.bash",
   "maps_directory": "src/yumi_robot_pkg/maps",
   "selected_map": "X5_19102026.yaml",
-  "nav2_command": "ros2 launch yumi_robot_pkg NAV2_BRINGUP.launch.py map:={map}",
+  "nav2_command": "ros2 launch yumi_robot_pkg NAV2_BRINGUP.launch.py map:={map} params_file:=/home/khoaiuh/yumi_phat_bang/install/yumi_robot_pkg/share/yumi_robot_pkg/config/nav2_gostraight.yaml",
   "nav2_opens_rviz": true,
   "rviz_command": "rviz2",
   "mapping_command": "ros2 launch yumi_robot_pkg MAP_GENERATING.launch.py start_robot:=false",
@@ -19,5 +19,6 @@
   "arbiter_state_topic": "/velocity_arbiter/state",
   "emergency_stop_topic": "/velocity_arbiter/emergency_stop",
   "map_server_node": "/map_server",
-  "load_map_service": "/map_server/load_map"
+  "load_map_service": "/map_server/load_map",
+  "nav2_command_mppi_reference": "ros2 launch yumi_robot_pkg NAV2_BRINGUP.launch.py map:={map}"
 }

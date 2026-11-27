@@ -35,5 +35,72 @@
       "X5.7",
       "home"
     ]
+  },
+  "tn_1": {
+    "map_name": "X5_08042026",
+    "sequence": [
+      "thien_1",
+      "khoi_1",
+      "khoi_2",
+      "thien_1"
+    ]
+  },
+  "tn_2": {
+    "map_name": "X5_08042026",
+    "sequence": [
+      "khoi_2",
+      "thien_1",
+      "khoi_2",
+      "thien_1"
+    ]
+  },
+  "yumi_tét": {
+    "map_name": "X5_08042026",
+    "sequence": [
+      "home_yumi",
+      "yumi_2",
+      "yumi_3",
+      "home_yumi",
+      "yumi_2",
+      "yumi_3",
+      "home_yumi",
+      "yumi_2",
+      "yumi_3",
+      "home_yumi",
+      "yumi_2",
+      "yumi_3",
+      "home_yumi",
+      "yumi_2",
+      "yumi_3",
+      "home_yumi",
+      "yumi_2",
+      "yumi_3",
+      "home_yumi",
+      "yumi_2",
+      "yumi_3",
+      "home_yumi",
+      "yumi_2",
+      "yumi_3",
+      "home_yumi",
+      "yumi_2",
+      "yumi_3",
+      "home_yumi",
+      "yumi_2",
+      "yumi_3",
+      "home_yumi",
+      "yumi_2",
+      "yumi_3",
+      "home_yumi",
+      "yumi_2",
+      "yumi_3",
+      "home_yumi",
+      "yumi_2",
+      "yumi_3",
+      "home_yumi",
+      "yumi_2",
+      "yumi_3",
+      "home_yumi",
+      "yumi_2"
+    ]
   }
 }
